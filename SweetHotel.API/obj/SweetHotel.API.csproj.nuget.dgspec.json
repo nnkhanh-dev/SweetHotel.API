@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API.csproj": {}
+    "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj": {}
   },
   "projects": {
-    "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API.csproj": {
+    "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API.csproj",
+        "projectUniqueName": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
         "projectName": "SweetHotel.API",
-        "projectPath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API.csproj",
+        "projectPath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\SweetHotel\\SweetHotel.API\\obj\\",
+        "outputPath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.21, )"
@@ -76,6 +80,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.14.0, )"
             }
           },
           "imports": [

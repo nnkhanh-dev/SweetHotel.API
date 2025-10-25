@@ -15,5 +15,6 @@ namespace SweetHotel.API.Data
         public DbSet<RoomImages> RoomImages { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }
