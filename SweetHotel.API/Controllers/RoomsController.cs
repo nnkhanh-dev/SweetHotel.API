@@ -75,6 +75,24 @@ namespace SweetHotel.API.Controllers
             return Ok(roomsDto);
         }
 
+        // GET: api/Rooms/AvailableByDateRange?startDate=2024-01-01&endDate=2024-01-05&categoryId=xxx&maxPeople=2
+        [HttpGet("AvailableByDateRange")]
+        public async Task<ActionResult<IEnumerable<RoomDto>>> GetAvailableRoomsByDateRange(
+            [FromQuery] DateTime startDate, 
+            [FromQuery] DateTime endDate, 
+            [FromQuery] string? categoryId = null, 
+            [FromQuery] int? maxPeople = null)
+        {
+            if (startDate >= endDate)
+            {
+                return BadRequest(new { message = "Ngày b?t ??u ph?i nh? h?n ngày k?t thúc" });
+            }
+
+            var rooms = await _unitOfWork.Rooms.GetAvailableRoomsByDateRangeAsync(startDate, endDate, categoryId, maxPeople);
+            var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            return Ok(roomsDto);
+        }
+
         // POST: api/Rooms
         [HttpPost]
         public async Task<ActionResult<RoomDto>> CreateRoom(CreateRoomDto createRoomDto)

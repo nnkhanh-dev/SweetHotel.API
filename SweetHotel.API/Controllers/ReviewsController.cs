@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.Review;
 using SweetHotel.API.Entities.Entities;
 using SweetHotel.API.Repositories;
+using SweetHotel.API.Enums;
 
 namespace SweetHotel.API.Controllers
 {
@@ -72,7 +73,21 @@ namespace SweetHotel.API.Controllers
                 return BadRequest(new { message = "Booking not found" });
             }
 
+            // Ki?m tra booking ?ã hoàn thành ch?a
+            if (booking.Status != BookingStatus.Completed)
+            {
+                return BadRequest(new { message = "Ch? có th? ?ánh giá sau khi hoàn thành booking (?ã check-out)" });
+            }
+
+            // Ki?m tra ?ã có review cho booking này ch?a
+            var existingReviews = await _unitOfWork.Reviews.GetByBookingIdAsync(createReviewDto.BookingId);
+            if (existingReviews.Any())
+            {
+                return BadRequest(new { message = "Booking này ?ã ???c ?ánh giá" });
+            }
+
             var review = _mapper.Map<Review>(createReviewDto);
+            review.CreatedAt = DateTime.UtcNow;
             
             await _unitOfWork.Reviews.AddAsync(review);
             await _unitOfWork.SaveChangesAsync();

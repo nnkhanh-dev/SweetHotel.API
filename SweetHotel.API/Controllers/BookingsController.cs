@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.Booking;
 using SweetHotel.API.Entities.Entities;
 using SweetHotel.API.Repositories;
+using SweetHotel.API.Enums;
 
 namespace SweetHotel.API.Controllers
 {
@@ -50,6 +51,28 @@ namespace SweetHotel.API.Controllers
             var bookings = await _unitOfWork.Bookings.GetByUserIdAsync(userId);
             var bookingsDto = _mapper.Map<IEnumerable<BookingDetailDto>>(bookings);
             return Ok(bookingsDto);
+        }
+
+        // GET: api/Bookings/MyBookings/{userId}
+        [HttpGet("MyBookings/{userId}")]
+        public async Task<ActionResult<object>> GetMyBookingHistory(string userId)
+        {
+            var bookings = await _unitOfWork.Bookings.GetByUserIdAsync(userId);
+            var bookingsDto = _mapper.Map<IEnumerable<BookingDetailDto>>(bookings);
+            
+            // Phân lo?i bookings
+            var result = new
+            {
+                upcoming = bookingsDto.Where(b => 
+                    b.Status == BookingStatus.Pending || 
+                    b.Status == BookingStatus.Confirmed).OrderBy(b => b.StartDate),
+                current = bookingsDto.Where(b => b.Status == BookingStatus.CheckedIn).OrderByDescending(b => b.StartDate),
+                completed = bookingsDto.Where(b => b.Status == BookingStatus.Completed).OrderByDescending(b => b.EndDate),
+                cancelled = bookingsDto.Where(b => b.Status == BookingStatus.Cancelled).OrderByDescending(b => b.StartDate),
+                all = bookingsDto.OrderByDescending(b => b.StartDate)
+            };
+
+            return Ok(result);
         }
 
         // GET: api/Bookings/ByRoom/roomId
@@ -147,6 +170,41 @@ namespace SweetHotel.API.Controllers
             await _unitOfWork.SaveChangesAsync();
 
             return NoContent();
+        }
+
+        // POST: api/Bookings/5/Cancel
+        [HttpPost("{id}/Cancel")]
+        public async Task<IActionResult> CancelBooking(string id)
+        {
+            var booking = await _unitOfWork.Bookings.GetByIdAsync(id);
+
+            if (booking == null)
+            {
+                return NotFound(new { message = "Booking not found" });
+            }
+
+            // Ki?m tra tr?ng thái có th? h?y
+            if (booking.Status == BookingStatus.Cancelled)
+            {
+                return BadRequest(new { message = "Booking ?ã ???c h?y tr??c ?ó" });
+            }
+
+            if (booking.Status == BookingStatus.Completed)
+            {
+                return BadRequest(new { message = "Không th? h?y booking ?ã hoàn thành" });
+            }
+
+            if (booking.Status == BookingStatus.CheckedIn)
+            {
+                return BadRequest(new { message = "Không th? h?y booking ?ang s? d?ng" });
+            }
+
+            // C?p nh?t tr?ng thái
+            booking.Status = BookingStatus.Cancelled;
+            _unitOfWork.Bookings.Update(booking);
+            await _unitOfWork.SaveChangesAsync();
+
+            return Ok(new { message = "?ã h?y booking thành công", bookingId = id });
         }
     }
 }

@@ -10,5 +10,6 @@ namespace SweetHotel.API.Repositories
         Task<Room?> GetRoomWithCategoryAsync(string id);
         Task<IEnumerable<Room>> GetRoomsWithCategoryAsync();
         Task<IEnumerable<Room>> GetRoomsByPriceRangeAsync(decimal minPrice, decimal maxPrice);
+        Task<IEnumerable<Room>> GetAvailableRoomsByDateRangeAsync(DateTime startDate, DateTime endDate, string? categoryId = null, int? maxPeople = null);
     }
 }

@@ -371,6 +371,28 @@
         }
       }
     },
+    "/api/Bookings/MyBookings/{userId}": {
+      "get": {
+        "tags": [
+          "Bookings"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Bookings/ByRoom/{roomId}": {
       "get": {
         "tags": [
@@ -495,6 +517,28 @@
             "schema": {
               "type": "string",
               "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Bookings/{id}/Cancel": {
+      "post": {
+        "tags": [
+          "Bookings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -1592,6 +1636,77 @@
           }
         }
       }
+    },
+    "/api/Rooms/AvailableByDateRange": {
+      "get": {
+        "tags": [
+          "Rooms"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "categoryId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPeople",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Room.RoomDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Room.RoomDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Room.RoomDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1852,15 +1967,27 @@
         "additionalProperties": false
       },
       "SweetHotel.API.DTOs.Review.CreateReviewDto": {
+        "required": [
+          "bookingId",
+          "comment",
+          "rating"
+        ],
         "type": "object",
         "properties": {
+          "rating": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
           "comment": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 1000,
+            "minLength": 0,
+            "type": "string"
           },
           "bookingId": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1871,6 +1998,10 @@
           "id": {
             "type": "string",
             "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
           },
           "comment": {
             "type": "string",
@@ -1897,6 +2028,10 @@
             "type": "string",
             "nullable": true
           },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
           "comment": {
             "type": "string",
             "nullable": true
@@ -1915,7 +2050,15 @@
       "SweetHotel.API.DTOs.Review.UpdateReviewDto": {
         "type": "object",
         "properties": {
+          "rating": {
+            "maximum": 5,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
           "comment": {
+            "maxLength": 1000,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           }

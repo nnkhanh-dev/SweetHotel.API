@@ -56,5 +56,47 @@ namespace SweetHotel.API.Repositories
                 .Include(r => r.Category)
                 .ToListAsync();
         }
+
+        public async Task<IEnumerable<Room>> GetAvailableRoomsByDateRangeAsync(DateTime startDate, DateTime endDate, string? categoryId = null, int? maxPeople = null)
+        {
+            // L?y t?t c? các phòng có tr?ng thái Available
+            var query = _dbSet
+                .Include(r => r.Category)
+                .Where(r => r.Status == RoomStatus.Available);
+
+            // L?c theo danh m?c n?u có
+            if (!string.IsNullOrEmpty(categoryId))
+            {
+                query = query.Where(r => r.CategoryId == categoryId);
+            }
+
+            // L?c theo s? ng??i n?u có
+            if (maxPeople.HasValue)
+            {
+                query = query.Where(r => r.Category != null && r.Category.MaxPeople >= maxPeople.Value);
+            }
+
+            var rooms = await query.ToListAsync();
+
+            // L?c các phòng không b? ??t trong kho?ng th?i gian
+            var availableRooms = new List<Room>();
+            foreach (var room in rooms)
+            {
+                var hasConflict = await _context.Bookings.AnyAsync(b =>
+                    b.RoomId == room.Id &&
+                    b.Status != BookingStatus.Cancelled &&
+                    b.Status != BookingStatus.NoShow &&
+                    ((b.StartDate <= startDate && b.EndDate >= startDate) ||
+                     (b.StartDate <= endDate && b.EndDate >= endDate) ||
+                     (b.StartDate >= startDate && b.EndDate <= endDate)));
+
+                if (!hasConflict)
+                {
+                    availableRooms.Add(room);
+                }
+            }
+
+            return availableRooms;
+        }
     }
 }
