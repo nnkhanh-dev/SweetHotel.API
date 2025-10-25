@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.RoomImages;
 using SweetHotel.API.Entities.Entities;
@@ -19,8 +20,9 @@ namespace SweetHotel.API.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/RoomImages
+        // GET: api/RoomImages - T?t c? có th? xem
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomImageDto>>> GetRoomImages()
         {
             var images = await _unitOfWork.RoomImages.GetAllAsync();
@@ -28,8 +30,9 @@ namespace SweetHotel.API.Controllers
             return Ok(imagesDto);
         }
 
-        // GET: api/RoomImages/5
+        // GET: api/RoomImages/5 - T?t c? có th? xem
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<RoomImageDto>> GetRoomImage(string id)
         {
             var image = await _unitOfWork.RoomImages.GetByIdAsync(id);
@@ -43,8 +46,9 @@ namespace SweetHotel.API.Controllers
             return Ok(imageDto);
         }
 
-        // GET: api/RoomImages/ByRoom/roomId
+        // GET: api/RoomImages/ByRoom/roomId - T?t c? có th? xem
         [HttpGet("ByRoom/{roomId}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomImageDto>>> GetImagesByRoom(string roomId)
         {
             var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomId);
@@ -52,8 +56,9 @@ namespace SweetHotel.API.Controllers
             return Ok(imagesDto);
         }
 
-        // POST: api/RoomImages
+        // POST: api/RoomImages - Ch? Admin
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<RoomImageDto>> CreateRoomImage(CreateRoomImageDto createRoomImageDto)
         {
             // Validate room exists
@@ -72,8 +77,9 @@ namespace SweetHotel.API.Controllers
             return CreatedAtAction(nameof(GetRoomImage), new { id = image.Id }, imageDto);
         }
 
-        // PUT: api/RoomImages/5
+        // PUT: api/RoomImages/5 - Ch? Admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateRoomImage(string id, UpdateRoomImageDto updateRoomImageDto)
         {
             var image = await _unitOfWork.RoomImages.GetByIdAsync(id);
@@ -90,8 +96,9 @@ namespace SweetHotel.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/RoomImages/5
+        // DELETE: api/RoomImages/5 - Ch? Admin
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteRoomImage(string id)
         {
             var image = await _unitOfWork.RoomImages.GetByIdAsync(id);

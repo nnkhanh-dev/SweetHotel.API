@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.Room;
 using SweetHotel.API.Entities.Entities;
@@ -19,17 +20,27 @@ namespace SweetHotel.API.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Rooms
+        // GET: api/Rooms - T?t c? có th? xem
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomDto>>> GetRooms()
         {
             var rooms = await _unitOfWork.Rooms.GetRoomsWithCategoryAsync();
             var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            
+            // Load images cho t?ng phòng
+            foreach (var roomDto in roomsDto)
+            {
+                var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            }
+            
             return Ok(roomsDto);
         }
 
-        // GET: api/Rooms/5
+        // GET: api/Rooms/5 - T?t c? có th? xem
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<RoomDetailDto>> GetRoom(string id)
         {
             var room = await _unitOfWork.Rooms.GetRoomWithCategoryAsync(id);
@@ -48,35 +59,63 @@ namespace SweetHotel.API.Controllers
             return Ok(roomDto);
         }
 
-        // GET: api/Rooms/Available
+        // GET: api/Rooms/Available - T?t c? có th? xem
         [HttpGet("Available")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomDto>>> GetAvailableRooms()
         {
             var rooms = await _unitOfWork.Rooms.GetAvailableRoomsAsync();
             var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            
+            // Load images cho t?ng phòng
+            foreach (var roomDto in roomsDto)
+            {
+                var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            }
+            
             return Ok(roomsDto);
         }
 
-        // GET: api/Rooms/ByCategory/5
+        // GET: api/Rooms/ByCategory/5 - T?t c? có th? xem
         [HttpGet("ByCategory/{categoryId}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomDto>>> GetRoomsByCategory(string categoryId)
         {
             var rooms = await _unitOfWork.Rooms.GetByCategoryIdAsync(categoryId);
             var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            
+            // Load images cho t?ng phòng
+            foreach (var roomDto in roomsDto)
+            {
+                var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            }
+            
             return Ok(roomsDto);
         }
 
-        // GET: api/Rooms/ByPriceRange?minPrice=100&maxPrice=500
+        // GET: api/Rooms/ByPriceRange?minPrice=100&maxPrice=500 - T?t c? có th? xem
         [HttpGet("ByPriceRange")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomDto>>> GetRoomsByPriceRange([FromQuery] decimal minPrice, [FromQuery] decimal maxPrice)
         {
             var rooms = await _unitOfWork.Rooms.GetRoomsByPriceRangeAsync(minPrice, maxPrice);
             var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            
+            // Load images cho t?ng phòng
+            foreach (var roomDto in roomsDto)
+            {
+                var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            }
+            
             return Ok(roomsDto);
         }
 
-        // GET: api/Rooms/AvailableByDateRange?startDate=2024-01-01&endDate=2024-01-05&categoryId=xxx&maxPeople=2
+        // GET: api/Rooms/AvailableByDateRange - T?t c? có th? xem (cho Client tìm phòng)
         [HttpGet("AvailableByDateRange")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomDto>>> GetAvailableRoomsByDateRange(
             [FromQuery] DateTime startDate, 
             [FromQuery] DateTime endDate, 
@@ -90,11 +129,20 @@ namespace SweetHotel.API.Controllers
 
             var rooms = await _unitOfWork.Rooms.GetAvailableRoomsByDateRangeAsync(startDate, endDate, categoryId, maxPeople);
             var roomsDto = _mapper.Map<IEnumerable<RoomDto>>(rooms);
+            
+            // Load images cho t?ng phòng
+            foreach (var roomDto in roomsDto)
+            {
+                var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            }
+            
             return Ok(roomsDto);
         }
 
-        // POST: api/Rooms
+        // POST: api/Rooms - Ch? Admin
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<RoomDto>> CreateRoom(CreateRoomDto createRoomDto)
         {
             // Validate category exists
@@ -110,11 +158,17 @@ namespace SweetHotel.API.Controllers
             await _unitOfWork.SaveChangesAsync();
 
             var roomDto = _mapper.Map<RoomDto>(room);
+            
+            // Load images
+            var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
+            roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            
             return CreatedAtAction(nameof(GetRoom), new { id = room.Id }, roomDto);
         }
 
-        // PUT: api/Rooms/5
+        // PUT: api/Rooms/5 - Ch? Admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateRoom(string id, UpdateRoomDto updateRoomDto)
         {
             var room = await _unitOfWork.Rooms.GetByIdAsync(id);
@@ -138,8 +192,9 @@ namespace SweetHotel.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Rooms/5
+        // DELETE: api/Rooms/5 - Ch? Admin
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteRoom(string id)
         {
             var room = await _unitOfWork.Rooms.GetByIdAsync(id);

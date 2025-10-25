@@ -2180,6 +2180,13 @@
           "categoryName": {
             "type": "string",
             "nullable": true
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SweetHotel.API.DTOs.Room.RoomImageDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

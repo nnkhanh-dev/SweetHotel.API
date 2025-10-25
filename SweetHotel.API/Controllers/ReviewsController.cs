@@ -1,9 +1,11 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.Review;
 using SweetHotel.API.Entities.Entities;
 using SweetHotel.API.Repositories;
 using SweetHotel.API.Enums;
+using System.Security.Claims;
 
 namespace SweetHotel.API.Controllers
 {
@@ -20,8 +22,9 @@ namespace SweetHotel.API.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Reviews
+        // GET: api/Reviews - T?t c? có th? xem
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ReviewDetailDto>>> GetReviews()
         {
             var reviews = await _unitOfWork.Reviews.GetReviewsWithBookingAsync();
@@ -29,8 +32,9 @@ namespace SweetHotel.API.Controllers
             return Ok(reviewsDto);
         }
 
-        // GET: api/Reviews/5
+        // GET: api/Reviews/5 - T?t c? có th? xem
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<ReviewDetailDto>> GetReview(string id)
         {
             var review = await _unitOfWork.Reviews.GetReviewWithBookingAsync(id);
@@ -44,8 +48,9 @@ namespace SweetHotel.API.Controllers
             return Ok(reviewDto);
         }
 
-        // GET: api/Reviews/ByBooking/bookingId
+        // GET: api/Reviews/ByBooking/bookingId - T?t c? có th? xem
         [HttpGet("ByBooking/{bookingId}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ReviewDto>>> GetReviewsByBooking(string bookingId)
         {
             var reviews = await _unitOfWork.Reviews.GetByBookingIdAsync(bookingId);
@@ -53,8 +58,9 @@ namespace SweetHotel.API.Controllers
             return Ok(reviewsDto);
         }
 
-        // GET: api/Reviews/Recent/10
+        // GET: api/Reviews/Recent/10 - T?t c? có th? xem
         [HttpGet("Recent/{count}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ReviewDetailDto>>> GetRecentReviews(int count)
         {
             var reviews = await _unitOfWork.Reviews.GetRecentReviewsAsync(count);
@@ -62,8 +68,9 @@ namespace SweetHotel.API.Controllers
             return Ok(reviewsDto);
         }
 
-        // POST: api/Reviews
+        // POST: api/Reviews - Client t?o review
         [HttpPost]
+        [Authorize(Roles = "Client")]
         public async Task<ActionResult<ReviewDto>> CreateReview(CreateReviewDto createReviewDto)
         {
             // Validate booking exists
@@ -71,6 +78,13 @@ namespace SweetHotel.API.Controllers
             if (booking == null)
             {
                 return BadRequest(new { message = "Booking not found" });
+            }
+
+            // Ki?m tra quy?n: ch? ???c review booking c?a chính mình
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (booking.UserId != currentUserId)
+            {
+                return Forbid();
             }
 
             // Ki?m tra booking ?ã hoàn thành ch?a
@@ -96,15 +110,25 @@ namespace SweetHotel.API.Controllers
             return CreatedAtAction(nameof(GetReview), new { id = review.Id }, reviewDto);
         }
 
-        // PUT: api/Reviews/5
+        // PUT: api/Reviews/5 - Client s?a review c?a mình ho?c Admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> UpdateReview(string id, UpdateReviewDto updateReviewDto)
         {
-            var review = await _unitOfWork.Reviews.GetByIdAsync(id);
+            var review = await _unitOfWork.Reviews.GetReviewWithBookingAsync(id);
 
             if (review == null)
             {
                 return NotFound(new { message = "Review not found" });
+            }
+
+            // Ki?m tra quy?n: Admin ho?c ch? review
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var isAdmin = User.IsInRole("Admin");
+            
+            if (!isAdmin && review.Booking?.UserId != currentUserId)
+            {
+                return Forbid();
             }
 
             _mapper.Map(updateReviewDto, review);
@@ -114,15 +138,25 @@ namespace SweetHotel.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Reviews/5
+        // DELETE: api/Reviews/5 - Client xóa review c?a mình ho?c Admin
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> DeleteReview(string id)
         {
-            var review = await _unitOfWork.Reviews.GetByIdAsync(id);
+            var review = await _unitOfWork.Reviews.GetReviewWithBookingAsync(id);
 
             if (review == null)
             {
                 return NotFound(new { message = "Review not found" });
+            }
+
+            // Ki?m tra quy?n: Admin ho?c ch? review
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var isAdmin = User.IsInRole("Admin");
+            
+            if (!isAdmin && review.Booking?.UserId != currentUserId)
+            {
+                return Forbid();
             }
 
             _unitOfWork.Reviews.Remove(review);

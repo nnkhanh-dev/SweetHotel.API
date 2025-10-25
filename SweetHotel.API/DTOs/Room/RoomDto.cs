@@ -11,6 +11,7 @@ namespace SweetHotel.API.DTOs.Room
         public int Discount { get; set; }
         public string CategoryId { get; set; } = string.Empty;
         public string? CategoryName { get; set; }
+        public List<RoomImageDto>? Images { get; set; }
     }
 
     public class RoomDetailDto

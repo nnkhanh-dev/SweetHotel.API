@@ -17,12 +17,13 @@ namespace SweetHotel.API.Mappings
             // Room Mappings
             CreateMap<Room, DTOs.Room.RoomDto>()
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
-                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount));
+                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount))
+                .ForMember(dest => dest.Images, opt => opt.Ignore()); // Images s? ???c load riêng
             
             CreateMap<Room, DTOs.Room.RoomDetailDto>()
                 .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount))
                 .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
-                .ForMember(dest => dest.Images, opt => opt.Ignore());
+                .ForMember(dest => dest.Images, opt => opt.Ignore()); // Images s? ???c load riêng
             
             CreateMap<DTOs.Room.CreateRoomDto, Room>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()))

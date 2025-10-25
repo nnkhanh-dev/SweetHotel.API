@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.DTOs.Category;
 using SweetHotel.API.Entities.Entities;
@@ -19,8 +20,9 @@ namespace SweetHotel.API.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Categories
+        // GET: api/Categories - T?t c? có th? xem
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {
             var categories = await _unitOfWork.Categories.GetAllAsync();
@@ -28,8 +30,9 @@ namespace SweetHotel.API.Controllers
             return Ok(categoriesDto);
         }
 
-        // GET: api/Categories/5
+        // GET: api/Categories/5 - T?t c? có th? xem
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<CategoryDto>> GetCategory(string id)
         {
             var category = await _unitOfWork.Categories.GetByIdAsync(id);
@@ -43,8 +46,9 @@ namespace SweetHotel.API.Controllers
             return Ok(categoryDto);
         }
 
-        // GET: api/Categories/ByMaxPeople/4
+        // GET: api/Categories/ByMaxPeople/4 - T?t c? có th? xem
         [HttpGet("ByMaxPeople/{maxPeople}")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategoriesByMaxPeople(int maxPeople)
         {
             var categories = await _unitOfWork.Categories.GetByMaxPeopleAsync(maxPeople);
@@ -52,8 +56,9 @@ namespace SweetHotel.API.Controllers
             return Ok(categoriesDto);
         }
 
-        // POST: api/Categories
+        // POST: api/Categories - Ch? Admin
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CategoryDto>> CreateCategory(CreateCategoryDto createCategoryDto)
         {
             var category = _mapper.Map<Category>(createCategoryDto);
@@ -65,8 +70,9 @@ namespace SweetHotel.API.Controllers
             return CreatedAtAction(nameof(GetCategory), new { id = category.Id }, categoryDto);
         }
 
-        // PUT: api/Categories/5
+        // PUT: api/Categories/5 - Ch? Admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateCategory(string id, UpdateCategoryDto updateCategoryDto)
         {
             var category = await _unitOfWork.Categories.GetByIdAsync(id);
@@ -83,8 +89,9 @@ namespace SweetHotel.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Categories/5
+        // DELETE: api/Categories/5 - Ch? Admin
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCategory(string id)
         {
             var category = await _unitOfWork.Categories.GetByIdAsync(id);

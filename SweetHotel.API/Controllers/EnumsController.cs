@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SweetHotel.API.Enums;
 
@@ -8,9 +9,10 @@ namespace SweetHotel.API.Controllers
     public class EnumsController : ControllerBase
     {
         /// <summary>
-        /// L?y danh sách t?t c? Room Status
+        /// L?y danh sách t?t c? Room Status - T?t c? có th? xem
         /// </summary>
         [HttpGet("room-statuses")]
+        [AllowAnonymous]
         public IActionResult GetRoomStatuses()
         {
             var statuses = Enum.GetValues(typeof(RoomStatus))
@@ -26,9 +28,10 @@ namespace SweetHotel.API.Controllers
         }
 
         /// <summary>
-        /// L?y danh sách t?t c? Booking Status
+        /// L?y danh sách t?t c? Booking Status - T?t c? có th? xem
         /// </summary>
         [HttpGet("booking-statuses")]
+        [AllowAnonymous]
         public IActionResult GetBookingStatuses()
         {
             var statuses = Enum.GetValues(typeof(BookingStatus))
