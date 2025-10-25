@@ -1,0 +1,73 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using SweetHotel.API.Enums;
+
+namespace SweetHotel.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EnumsController : ControllerBase
+    {
+        /// <summary>
+        /// Lấy danh sách tất cả Room Status
+        /// </summary>
+        [HttpGet("room-statuses")]
+        public IActionResult GetRoomStatuses()
+        {
+            var statuses = Enum.GetValues(typeof(RoomStatus))
+                .Cast<RoomStatus>()
+                .Select(s => new
+                {
+                    value = (int)s,
+                    name = s.ToString(),
+                    description = GetRoomStatusDescription(s)
+                });
+
+            return Ok(statuses);
+        }
+
+        /// <summary>
+        /// Lấy danh sách tất cả Booking Status
+        /// </summary>
+        [HttpGet("booking-statuses")]
+        public IActionResult GetBookingStatuses()
+        {
+            var statuses = Enum.GetValues(typeof(BookingStatus))
+                .Cast<BookingStatus>()
+                .Select(s => new
+                {
+                    value = (int)s,
+                    name = s.ToString(),
+                    description = GetBookingStatusDescription(s)
+                });
+
+            return Ok(statuses);
+        }
+
+        private string GetRoomStatusDescription(RoomStatus status)
+        {
+            return status switch
+            {
+                RoomStatus.Unavailable => "Không khả dụng",
+                RoomStatus.Available => "Còn trống, sẵn sàng cho thuê",
+                RoomStatus.Occupied => "Đang được thuê",
+                RoomStatus.Maintenance => "Đang bảo trì",
+                RoomStatus.Cleaning => "Đang dọn dẹp",
+                _ => ""
+            };
+        }
+
+        private string GetBookingStatusDescription(BookingStatus status)
+        {
+            return status switch
+            {
+                BookingStatus.Pending => "Chờ xác nhận",
+                BookingStatus.Confirmed => "Đã xác nhận",
+                BookingStatus.Cancelled => "Đã hủy",
+                BookingStatus.CheckedIn => "Đang sử dụng (đã check-in)",
+                BookingStatus.Completed => "Đã hoàn thành (đã check-out)",
+                BookingStatus.NoShow => "Không đến (No-show)",
+                _ => ""
+            };
+        }
+    }
+}

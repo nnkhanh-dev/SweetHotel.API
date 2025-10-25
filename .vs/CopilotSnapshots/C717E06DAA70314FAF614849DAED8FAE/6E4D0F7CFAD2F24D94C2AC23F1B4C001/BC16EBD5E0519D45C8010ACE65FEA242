@@ -1,0 +1,82 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SweetHotel.API.Data;
+using SweetHotel.API.Entities.Entities;
+using SweetHotel.API.Enums;
+
+namespace SweetHotel.API.Repositories
+{
+    public class BookingRepository : Repository<Booking>, IBookingRepository
+    {
+        public BookingRepository(AppDbContext context) : base(context)
+        {
+        }
+
+        public async Task<IEnumerable<Booking>> GetByUserIdAsync(string userId)
+        {
+            return await _dbSet
+                .Where(b => b.UserId == userId)
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Booking>> GetByRoomIdAsync(string roomId)
+        {
+            return await _dbSet
+                .Where(b => b.RoomId == roomId)
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Booking>> GetByStatusAsync(int status)
+        {
+            return await _dbSet
+                .Where(b => (int)b.Status == status)
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .ToListAsync();
+        }
+
+        public async Task<Booking?> GetBookingWithDetailsAsync(string id)
+        {
+            return await _dbSet
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public async Task<IEnumerable<Booking>> GetBookingsWithDetailsAsync()
+        {
+            return await _dbSet
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Booking>> GetBookingsByDateRangeAsync(DateTime startDate, DateTime endDate)
+        {
+            return await _dbSet
+                .Where(b => b.StartDate >= startDate && b.EndDate <= endDate)
+                .Include(b => b.Room)
+                .ThenInclude(r => r.Category)
+                .Include(b => b.User)
+                .ToListAsync();
+        }
+
+        public async Task<bool> IsRoomAvailableAsync(string roomId, DateTime startDate, DateTime endDate)
+        {
+            return !await _dbSet.AnyAsync(b => 
+                b.RoomId == roomId && 
+                b.Status != BookingStatus.Cancelled && // Chỉ check booking chưa hủy
+                ((b.StartDate <= startDate && b.EndDate >= startDate) ||
+                 (b.StartDate <= endDate && b.EndDate >= endDate) ||
+                 (b.StartDate >= startDate && b.EndDate <= endDate)));
+        }
+    }
+}

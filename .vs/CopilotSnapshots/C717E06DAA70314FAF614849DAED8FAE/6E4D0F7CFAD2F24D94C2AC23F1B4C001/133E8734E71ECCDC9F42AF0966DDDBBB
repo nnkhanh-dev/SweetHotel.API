@@ -1,0 +1,64 @@
+﻿using SweetHotel.API.Enums;
+
+namespace SweetHotel.API.DTOs.Booking
+{
+    public class BookingDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public BookingStatus Status { get; set; }
+        public string? Note { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string RoomId { get; set; } = string.Empty;
+        public string UserId { get; set; } = string.Empty;
+    }
+
+    public class BookingDetailDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public BookingStatus Status { get; set; }
+        public string? Note { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string RoomId { get; set; } = string.Empty;
+        public string UserId { get; set; } = string.Empty;
+        public RoomDto? Room { get; set; }
+        public UserDto? User { get; set; }
+    }
+
+    public class CreateBookingDto
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public string? Note { get; set; }
+        public string RoomId { get; set; } = string.Empty;
+        public string UserId { get; set; } = string.Empty;
+    }
+
+    public class UpdateBookingDto
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public BookingStatus Status { get; set; }
+        public string? Note { get; set; }
+        public decimal TotalPrice { get; set; }
+    }
+
+    public class RoomDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Discount { get; set; }
+        public string? CategoryName { get; set; }
+    }
+
+    public class UserDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+    }
+}

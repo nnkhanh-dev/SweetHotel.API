@@ -1,0 +1,33 @@
+﻿namespace SweetHotel.API.Enums
+{
+    /// <summary>
+    /// Trạng thái phòng
+    /// </summary>
+    public enum RoomStatus
+    {
+        /// <summary>
+        /// Không khả dụng
+        /// </summary>
+        Unavailable = 0,
+        
+        /// <summary>
+        /// Còn trống, sẵn sàng cho thuê
+        /// </summary>
+        Available = 1,
+        
+        /// <summary>
+        /// Đang được thuê
+        /// </summary>
+        Occupied = 2,
+        
+        /// <summary>
+        /// Đang bảo trì
+        /// </summary>
+        Maintenance = 3,
+        
+        /// <summary>
+        /// Đang dọn dẹp
+        /// </summary>
+        Cleaning = 4
+    }
+}

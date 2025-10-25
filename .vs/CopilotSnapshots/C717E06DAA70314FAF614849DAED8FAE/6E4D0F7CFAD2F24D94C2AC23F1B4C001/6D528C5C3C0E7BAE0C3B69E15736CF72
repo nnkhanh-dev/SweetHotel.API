@@ -1,0 +1,57 @@
+﻿namespace SweetHotel.API.DTOs.Room
+{
+    public class RoomDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public int Status { get; set; }
+        public string Amenities { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Discount { get; set; }
+        public string CategoryId { get; set; } = string.Empty;
+        public string? CategoryName { get; set; }
+    }
+
+    public class RoomDetailDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public int Status { get; set; }
+        public string Amenities { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Discount { get; set; }
+        public string CategoryId { get; set; } = string.Empty;
+        public CategoryDto? Category { get; set; }
+        public List<RoomImageDto>? Images { get; set; }
+    }
+
+    public class CreateRoomDto
+    {
+        public int Status { get; set; }
+        public string Amenities { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Discount { get; set; }
+        public string CategoryId { get; set; } = string.Empty;
+    }
+
+    public class UpdateRoomDto
+    {
+        public int Status { get; set; }
+        public string Amenities { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Discount { get; set; }
+        public string CategoryId { get; set; } = string.Empty;
+    }
+
+    public class CategoryDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public int MaxPeople { get; set; }
+    }
+
+    public class RoomImageDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Path { get; set; } = string.Empty;
+    }
+}

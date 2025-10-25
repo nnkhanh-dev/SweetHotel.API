@@ -1,0 +1,98 @@
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using SweetHotel.API.Data;
+
+namespace SweetHotel.API.Repositories
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private readonly AppDbContext _context;
+        private IDbContextTransaction? _transaction;
+        
+        private ICategoryRepository? _categories;
+        private IRoomRepository? _rooms;
+        private IBookingRepository? _bookings;
+        private IReviewRepository? _reviews;
+        private IRoomImagesRepository? _roomImages;
+
+        public UnitOfWork(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public ICategoryRepository Categories
+        {
+            get { return _categories ??= new CategoryRepository(_context); }
+        }
+
+        public IRoomRepository Rooms
+        {
+            get { return _rooms ??= new RoomRepository(_context); }
+        }
+
+        public IBookingRepository Bookings
+        {
+            get { return _bookings ??= new BookingRepository(_context); }
+        }
+
+        public IReviewRepository Reviews
+        {
+            get { return _reviews ??= new ReviewRepository(_context); }
+        }
+
+        public IRoomImagesRepository RoomImages
+        {
+            get { return _roomImages ??= new RoomImagesRepository(_context); }
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task BeginTransactionAsync()
+        {
+            _transaction = await _context.Database.BeginTransactionAsync();
+        }
+
+        public async Task CommitTransactionAsync()
+        {
+            try
+            {
+                await _context.SaveChangesAsync();
+                if (_transaction != null)
+                {
+                    await _transaction.CommitAsync();
+                }
+            }
+            catch
+            {
+                await RollbackTransactionAsync();
+                throw;
+            }
+            finally
+            {
+                if (_transaction != null)
+                {
+                    await _transaction.DisposeAsync();
+                    _transaction = null;
+                }
+            }
+        }
+
+        public async Task RollbackTransactionAsync()
+        {
+            if (_transaction != null)
+            {
+                await _transaction.RollbackAsync();
+                await _transaction.DisposeAsync();
+                _transaction = null;
+            }
+        }
+
+        public void Dispose()
+        {
+            _transaction?.Dispose();
+            _context.Dispose();
+        }
+    }
+}

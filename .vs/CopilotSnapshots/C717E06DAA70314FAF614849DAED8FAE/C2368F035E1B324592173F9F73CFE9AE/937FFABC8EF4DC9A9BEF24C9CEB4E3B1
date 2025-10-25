@@ -1,0 +1,15 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SweetHotel.API.Entities.Entities
+{
+    public class RoomImages
+    {
+        [Key]
+        public string Id { get; set; }
+        public string Path { get; set; }
+        public string RoomId { get; set; }
+        [ForeignKey("RoomId")]  
+        public Room Room { get; set; }
+    }
+}

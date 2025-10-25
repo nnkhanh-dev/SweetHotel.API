@@ -1,0 +1,16 @@
+namespace SweetHotel.API.Repositories
+{
+    public interface IUnitOfWork : IDisposable
+    {
+        ICategoryRepository Categories { get; }
+        IRoomRepository Rooms { get; }
+        IBookingRepository Bookings { get; }
+        IReviewRepository Reviews { get; }
+        IRoomImagesRepository RoomImages { get; }
+        
+        Task<int> SaveChangesAsync();
+        Task BeginTransactionAsync();
+        Task CommitTransactionAsync();
+        Task RollbackTransactionAsync();
+    }
+}

@@ -1,0 +1,15 @@
+using SweetHotel.API.Entities.Entities;
+
+namespace SweetHotel.API.Repositories
+{
+    public interface IBookingRepository : IRepository<Booking>
+    {
+        Task<IEnumerable<Booking>> GetByUserIdAsync(string userId);
+        Task<IEnumerable<Booking>> GetByRoomIdAsync(string roomId);
+        Task<IEnumerable<Booking>> GetByStatusAsync(int status);
+        Task<Booking?> GetBookingWithDetailsAsync(string id);
+        Task<IEnumerable<Booking>> GetBookingsWithDetailsAsync();
+        Task<IEnumerable<Booking>> GetBookingsByDateRangeAsync(DateTime startDate, DateTime endDate);
+        Task<bool> IsRoomAvailableAsync(string roomId, DateTime startDate, DateTime endDate);
+    }
+}

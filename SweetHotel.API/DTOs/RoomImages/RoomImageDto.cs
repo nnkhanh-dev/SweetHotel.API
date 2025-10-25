@@ -1,0 +1,20 @@
+namespace SweetHotel.API.DTOs.RoomImages
+{
+    public class RoomImageDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Path { get; set; } = string.Empty;
+        public string RoomId { get; set; } = string.Empty;
+    }
+
+    public class CreateRoomImageDto
+    {
+        public string Path { get; set; } = string.Empty;
+        public string RoomId { get; set; } = string.Empty;
+    }
+
+    public class UpdateRoomImageDto
+    {
+        public string Path { get; set; } = string.Empty;
+    }
+}

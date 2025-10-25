@@ -1,0 +1,86 @@
+﻿using AutoMapper;
+using SweetHotel.API.DTOs.Booking;
+using SweetHotel.API.DTOs.Category;
+using SweetHotel.API.DTOs.Review;
+using SweetHotel.API.DTOs.Room;
+using SweetHotel.API.DTOs.RoomImages;
+using SweetHotel.API.Entities.Entities;
+
+namespace SweetHotel.API.Mappings
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            // Category Mappings
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<CreateCategoryDto, Category>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()));
+            CreateMap<UpdateCategoryDto, Category>();
+
+            // Room Mappings
+            CreateMap<Room, RoomDto>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
+                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount));
+            
+            CreateMap<Room, RoomDetailDto>()
+                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount))
+                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
+                .ForMember(dest => dest.Images, opt => opt.Ignore());
+            
+            CreateMap<CreateRoomDto, Room>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()))
+                .ForMember(dest => dest.discount, opt => opt.MapFrom(src => src.Discount));
+            
+            CreateMap<UpdateRoomDto, Room>()
+                .ForMember(dest => dest.discount, opt => opt.MapFrom(src => src.Discount));
+
+            CreateMap<Category, DTOs.Room.CategoryDto>();
+            CreateMap<RoomImages, DTOs.Room.RoomImageDto>();
+
+            // Booking Mappings
+            CreateMap<Booking, BookingDto>().ReverseMap();
+            
+            CreateMap<Booking, BookingDetailDto>()
+                .ForMember(dest => dest.Room, opt => opt.MapFrom(src => src.Room))
+                .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User));
+            
+            CreateMap<CreateBookingDto, Booking>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => 0))
+                .ForMember(dest => dest.TotalPrice, opt => opt.Ignore());
+            
+            CreateMap<UpdateBookingDto, Booking>();
+
+            CreateMap<Room, DTOs.Booking.RoomDto>()
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
+                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.discount));
+            
+            CreateMap<AppUser, DTOs.Booking.UserDto>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber));
+
+            // Review Mappings
+            CreateMap<Review, ReviewDto>().ReverseMap();
+            
+            CreateMap<Review, ReviewDetailDto>()
+                .ForMember(dest => dest.Booking, opt => opt.MapFrom(src => src.Booking));
+            
+            CreateMap<CreateReviewDto, Review>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()))
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => DateTime.UtcNow));
+            
+            CreateMap<UpdateReviewDto, Review>();
+
+            CreateMap<Booking, DTOs.Review.BookingDto>();
+
+            // RoomImages Mappings
+            CreateMap<RoomImages, RoomImageDto>().ReverseMap();
+            
+            CreateMap<CreateRoomImageDto, RoomImages>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid().ToString()));
+            
+            CreateMap<UpdateRoomImageDto, RoomImages>();
+        }
+    }
+}

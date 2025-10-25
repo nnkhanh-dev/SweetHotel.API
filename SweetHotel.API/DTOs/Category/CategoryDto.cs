@@ -1,0 +1,24 @@
+namespace SweetHotel.API.DTOs.Category
+{
+    public class CategoryDto
+    {
+        public string Id { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public int MaxPeople { get; set; }
+    }
+
+    public class CreateCategoryDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public int MaxPeople { get; set; }
+    }
+
+    public class UpdateCategoryDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Description { get; set; }
+        public int MaxPeople { get; set; }
+    }
+}

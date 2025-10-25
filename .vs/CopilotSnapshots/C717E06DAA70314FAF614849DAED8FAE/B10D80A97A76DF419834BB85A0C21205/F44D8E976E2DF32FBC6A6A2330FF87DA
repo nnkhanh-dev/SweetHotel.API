@@ -1,0 +1,21 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace SweetHotel.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class HealthController : ControllerBase
+    {
+        // GET: api/Health
+        [HttpGet]
+        public IActionResult GetHealth()
+        {
+            return Ok(new 
+            { 
+                status = "Healthy",
+                timestamp = DateTime.UtcNow,
+                message = "SweetHotel API is running successfully!"
+            });
+        }
+    }
+}

@@ -1,0 +1,12 @@
+using SweetHotel.API.Entities.Entities;
+
+namespace SweetHotel.API.Repositories
+{
+    public interface IReviewRepository : IRepository<Review>
+    {
+        Task<IEnumerable<Review>> GetByBookingIdAsync(string bookingId);
+        Task<Review?> GetReviewWithBookingAsync(string id);
+        Task<IEnumerable<Review>> GetReviewsWithBookingAsync();
+        Task<IEnumerable<Review>> GetRecentReviewsAsync(int count);
+    }
+}
