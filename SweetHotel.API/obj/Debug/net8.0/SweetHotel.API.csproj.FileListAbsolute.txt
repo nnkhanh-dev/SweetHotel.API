@@ -146,10 +146,12 @@ D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.bui
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.development.json
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\SweetHot.F481AB72.Up2Date
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\SweetHotel.API.dll
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\refint\SweetHotel.API.dll
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\SweetHotel.API.pdb
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\SweetHotel.API.genruntimeconfig.cache
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\ref\SweetHotel.API.dll
+D:\SweetHotel\SweetHotel.API\SweetHotel.API\bin\Debug\net8.0\web.config
+D:\SweetHotel\SweetHotel.API\SweetHotel.API\bin\Debug\net8.0\appsettings.Production.json
+D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

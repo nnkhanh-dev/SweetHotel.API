@@ -78,7 +78,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // PUT: api/RoomImages/5 - Ch? Admin
-        [HttpPut("{id}")]
+        [HttpPost("Update/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateRoomImage(string id, UpdateRoomImageDto updateRoomImageDto)
         {
@@ -97,7 +97,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // DELETE: api/RoomImages/5 - Ch? Admin
-        [HttpDelete("{id}")]
+        [HttpPost("Delete/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteRoomImage(string id)
         {

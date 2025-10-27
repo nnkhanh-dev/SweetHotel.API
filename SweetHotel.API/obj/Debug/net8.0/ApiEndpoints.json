@@ -392,43 +392,6 @@
   },
   {
     "ContainingType": "SweetHotel.API.Controllers.CategoriesController",
-    "Method": "UpdateCategory",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "updateCategoryDto",
-        "Type": "SweetHotel.API.DTOs.Category.UpdateCategoryDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SweetHotel.API.Controllers.CategoriesController",
-    "Method": "DeleteCategory",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SweetHotel.API.Controllers.CategoriesController",
     "Method": "GetCategoriesByMaxPeople",
     "RelativePath": "api/Categories/ByMaxPeople/{maxPeople}",
     "HttpMethod": "GET",
@@ -452,6 +415,43 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SweetHotel.API.Controllers.CategoriesController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Categories/Delete/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SweetHotel.API.Controllers.CategoriesController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Categories/Update/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateCategoryDto",
+        "Type": "SweetHotel.API.DTOs.Category.UpdateCategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SweetHotel.API.Controllers.EnumsController",
@@ -843,43 +843,6 @@
   },
   {
     "ContainingType": "SweetHotel.API.Controllers.RoomsController",
-    "Method": "UpdateRoom",
-    "RelativePath": "api/Rooms/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "updateRoomDto",
-        "Type": "SweetHotel.API.DTOs.Room.UpdateRoomDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SweetHotel.API.Controllers.RoomsController",
-    "Method": "DeleteRoom",
-    "RelativePath": "api/Rooms/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "SweetHotel.API.Controllers.RoomsController",
     "Method": "GetAvailableRooms",
     "RelativePath": "api/Rooms/Available",
     "HttpMethod": "GET",
@@ -995,5 +958,42 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SweetHotel.API.Controllers.RoomsController",
+    "Method": "DeleteRoom",
+    "RelativePath": "api/Rooms/Delete/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SweetHotel.API.Controllers.RoomsController",
+    "Method": "UpdateRoom",
+    "RelativePath": "api/Rooms/Update/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateRoomDto",
+        "Type": "SweetHotel.API.DTOs.Room.UpdateRoomDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

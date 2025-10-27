@@ -71,7 +71,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // PUT: api/Categories/5 - Ch? Admin
-        [HttpPut("{id}")]
+        [HttpPost("Update/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateCategory(string id, UpdateCategoryDto updateCategoryDto)
         {
@@ -90,7 +90,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // DELETE: api/Categories/5 - Ch? Admin
-        [HttpDelete("{id}")]
+        [HttpPost("Delete/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCategory(string id)
         {

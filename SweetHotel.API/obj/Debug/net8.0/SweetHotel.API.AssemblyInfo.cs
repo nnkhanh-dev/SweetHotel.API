@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SweetHotel.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d46dffcc1a2e7d2d6cbd2d0112d69a090f35beba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6248685a052c2dd9281c3a586faf2db2afe770c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("SweetHotel.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SweetHotel.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

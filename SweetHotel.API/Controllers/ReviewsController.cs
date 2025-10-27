@@ -111,7 +111,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // PUT: api/Reviews/5 - Client s?a review c?a mình ho?c Admin
-        [HttpPut("{id}")]
+        [HttpPost("Update/{id}")]
         [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> UpdateReview(string id, UpdateReviewDto updateReviewDto)
         {
@@ -139,7 +139,7 @@ namespace SweetHotel.API.Controllers
         }
 
         // DELETE: api/Reviews/5 - Client xóa review c?a mình ho?c Admin
-        [HttpDelete("{id}")]
+        [HttpPost("Delete/{id}")]
         [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> DeleteReview(string id)
         {
