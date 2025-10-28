@@ -68,6 +68,17 @@ namespace SweetHotel.API.Controllers
             return Ok(reviewsDto);
         }
 
+        // GET: api/Reviews/ByRoom/{roomId} - T?t c? có th? xem
+        [HttpGet("ByRoom/{roomId}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<ReviewDetailDto>>> GetReviewsByRoom(string roomId)
+        {
+            var reviews = await _unitOfWork.Reviews.GetReviewsWithBookingAsync();
+            var roomReviews = reviews.Where(r => r.Booking != null && r.Booking.RoomId == roomId);
+            var reviewsDto = _mapper.Map<IEnumerable<ReviewDetailDto>>(roomReviews);
+            return Ok(reviewsDto);
+        }
+
         // POST: api/Reviews - Client t?o review
         [HttpPost]
         [Authorize(Roles = "Client")]

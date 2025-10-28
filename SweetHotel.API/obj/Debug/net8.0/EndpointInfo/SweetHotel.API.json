@@ -1032,6 +1032,54 @@
         }
       }
     },
+    "/api/Reviews/ByRoom/{roomId}": {
+      "get": {
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [
+          {
+            "name": "roomId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Review.ReviewDetailDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Review.ReviewDetailDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SweetHotel.API.DTOs.Review.ReviewDetailDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Reviews/Update/{id}": {
       "post": {
         "tags": [
