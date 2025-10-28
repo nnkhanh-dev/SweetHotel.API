@@ -1,57 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SweetHotel\\SweetHotel.API\\",
+  "WorkspaceRootPath": "E:\\SweetHotel\\SweetHotel.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\web.config||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\web.config||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\roomimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\roomimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\roomimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\dtos\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\dtos\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\roomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\roomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\repositories\\roomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\iroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\iroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\repositories\\iroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\repositories\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\data\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|d:\\sweethotel\\sweethotel.api\\sweethotel.api\\dtos\\room\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|e:\\sweethotel\\sweethotel.api\\sweethotel.api\\dtos\\room\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF322903-5A4F-4552-BBDF-5D1865E3C65C}|SweetHotel.API\\SweetHotel.API.csproj|solutionrelative:sweethotel.api\\dtos\\room\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -62,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,119 +118,101 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RoomRepository.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\RoomRepository.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\RoomRepository.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\RoomRepository.cs",
-              "RelativeToolTip": "SweetHotel.API\\Repositories\\RoomRepository.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAwwFAAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:39:31.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IBookingRepository.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IBookingRepository.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IBookingRepository.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IBookingRepository.cs",
-              "RelativeToolTip": "SweetHotel.API\\Repositories\\IBookingRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:39:07.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRepository.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IRepository.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRepository.cs",
-              "RelativeToolTip": "SweetHotel.API\\Repositories\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:38:38.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IRoomRepository.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRoomRepository.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IRoomRepository.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRoomRepository.cs",
-              "RelativeToolTip": "SweetHotel.API\\Repositories\\IRoomRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:38:19.532Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IUnitOfWork.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IUnitOfWork.cs",
-              "RelativeToolTip": "SweetHotel.API\\Repositories\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:38:02.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BookingsController.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\BookingsController.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\BookingsController.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\BookingsController.cs",
-              "RelativeToolTip": "SweetHotel.API\\Controllers\\BookingsController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAjwE4AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T15:16:57.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RoomsController.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomsController.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\RoomsController.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomsController.cs",
-              "RelativeToolTip": "SweetHotel.API\\Controllers\\RoomsController.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAAAAAgBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T13:15:42.701Z",
+              "Title": "web.config",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\web.config",
+              "RelativeDocumentMoniker": "SweetHotel.API\\web.config",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\web.config",
+              "RelativeToolTip": "SweetHotel.API\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-28T12:18:21.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RoomImagesController.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomImagesController.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\RoomImagesController.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomImagesController.cs",
-              "RelativeToolTip": "SweetHotel.API\\Controllers\\RoomImagesController.cs",
-              "ViewState": "AgIAALcAAAAAAAAAAAAAAJ0AAAAAAAAAAAAAAA==",
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SweetHotel.API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAAALIAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T13:19:26.585Z",
+              "WhenOpened": "2025-10-28T03:06:01.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Program.cs",
-              "RelativeDocumentMoniker": "SweetHotel.API\\Program.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Program.cs",
-              "RelativeToolTip": "SweetHotel.API\\Program.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\User\\UserDto.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\DTOs\\User\\UserDto.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\User\\UserDto.cs",
+              "RelativeToolTip": "SweetHotel.API\\DTOs\\User\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T14:56:35.952Z",
+              "WhenOpened": "2025-10-28T03:05:31.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IBookingRepository.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IBookingRepository.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IBookingRepository.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IBookingRepository.cs",
+              "RelativeToolTip": "SweetHotel.API\\Repositories\\IBookingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:39:07.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRepository.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IRepository.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRepository.cs",
+              "RelativeToolTip": "SweetHotel.API\\Repositories\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:38:38.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IRoomRepository.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRoomRepository.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IRoomRepository.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IRoomRepository.cs",
+              "RelativeToolTip": "SweetHotel.API\\Repositories\\IRoomRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:38:19.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\IUnitOfWork.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\IUnitOfWork.cs",
+              "RelativeToolTip": "SweetHotel.API\\Repositories\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:38:02.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoomImagesController.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomImagesController.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\RoomImagesController.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomImagesController.cs",
+              "RelativeToolTip": "SweetHotel.API\\Controllers\\RoomImagesController.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAswKoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T13:19:26.585Z",
               "EditorCaption": ""
             },
             {
@@ -227,37 +221,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\BookingsController.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "SweetHotel.API\\Controllers\\BookingsController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAjwE4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:16:57.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\RoomsController.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "SweetHotel.API\\Controllers\\RoomsController.cs",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAAAAgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T13:15:42.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RoomRepository.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\RoomRepository.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Repositories\\RoomRepository.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Repositories\\RoomRepository.cs",
+              "RelativeToolTip": "SweetHotel.API\\Repositories\\RoomRepository.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwFAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T15:39:31.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Program.cs",
+              "RelativeDocumentMoniker": "SweetHotel.API\\Program.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Program.cs",
+              "RelativeToolTip": "SweetHotel.API\\Program.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-27T14:56:35.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\appsettings.json",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\appsettings.json",
               "RelativeDocumentMoniker": "SweetHotel.API\\appsettings.json",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\appsettings.json",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\appsettings.json",
               "RelativeToolTip": "SweetHotel.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-27T15:36:06.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T15:36:06.487Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "DbInitializer.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Data\\DbInitializer.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Data\\DbInitializer.cs",
               "RelativeDocumentMoniker": "SweetHotel.API\\Data\\DbInitializer.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Data\\DbInitializer.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Data\\DbInitializer.cs",
               "RelativeToolTip": "SweetHotel.API\\Data\\DbInitializer.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwCkAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-27T14:12:00.206Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T14:12:00.206Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "SweetHotel.API\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\AuthController.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "SweetHotel.API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -266,11 +306,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "RoomDto.cs",
-              "DocumentMoniker": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
+              "DocumentMoniker": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
               "RelativeDocumentMoniker": "SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
-              "ToolTip": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
+              "ToolTip": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
               "RelativeToolTip": "SweetHotel.API\\DTOs\\Room\\RoomDto.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

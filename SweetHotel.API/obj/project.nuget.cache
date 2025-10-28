@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sW89stGm1J0=",
+  "dgSpecHash": "jik1AcZHyXw=",
   "success": true,
-  "projectFilePath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
+  "projectFilePath": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -4486,11 +4486,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
+      "projectUniqueName": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
       "projectName": "SweetHotel.API",
-      "projectPath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
+      "projectPath": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\SweetHotel.API.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\obj\\",
+      "outputPath": "E:\\SweetHotel\\SweetHotel.API\\SweetHotel.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
