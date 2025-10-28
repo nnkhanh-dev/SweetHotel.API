@@ -25,13 +25,30 @@ namespace SweetHotel.API.Controllers
             _env = env;
         }
 
+        private string ToAbsoluteUrl(string relativePath)
+        {
+            if (string.IsNullOrWhiteSpace(relativePath)) return relativePath;
+            // If it's already an absolute URL, return as-is
+            if (Uri.IsWellFormedUriString(relativePath, UriKind.Absolute))
+                return relativePath;
+
+            var scheme = Request?.Scheme ?? "https";
+            var host = Request?.Host.Value ?? string.Empty;
+            var basePath = Request?.PathBase.HasValue == true ? Request.PathBase.Value : string.Empty;
+            return $"{scheme}://{host}{basePath}{relativePath}";
+        }
+
         // GET: api/RoomImages - T?t c? có th? xem
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<RoomImageDto>>> GetRoomImages()
         {
             var images = await _unitOfWork.RoomImages.GetAllAsync();
-            var imagesDto = _mapper.Map<IEnumerable<RoomImageDto>>(images);
+            var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+            foreach (var img in imagesDto)
+            {
+                img.Path = ToAbsoluteUrl(img.Path);
+            }
             return Ok(imagesDto);
         }
 
@@ -45,6 +62,7 @@ namespace SweetHotel.API.Controllers
                 return NotFound(new { message = "Room image not found" });
 
             var imageDto = _mapper.Map<RoomImageDto>(image);
+            imageDto.Path = ToAbsoluteUrl(imageDto.Path);
             return Ok(imageDto);
         }
 
@@ -54,7 +72,11 @@ namespace SweetHotel.API.Controllers
         public async Task<ActionResult<IEnumerable<RoomImageDto>>> GetImagesByRoom(string roomId)
         {
             var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomId);
-            var imagesDto = _mapper.Map<IEnumerable<RoomImageDto>>(images);
+            var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+            foreach (var img in imagesDto)
+            {
+                img.Path = ToAbsoluteUrl(img.Path);
+            }
             return Ok(imagesDto);
         }
 
@@ -72,6 +94,7 @@ namespace SweetHotel.API.Controllers
             await _unitOfWork.SaveChangesAsync();
 
             var imageDto = _mapper.Map<RoomImageDto>(image);
+            imageDto.Path = ToAbsoluteUrl(imageDto.Path);
             return CreatedAtAction(nameof(GetRoomImage), new { id = image.Id }, imageDto);
         }
 
@@ -116,11 +139,15 @@ namespace SweetHotel.API.Controllers
                     await file.CopyToAsync(stream);
                 }
 
-                var webPath = $"/uploads/rooms/{roomId}/{fileName}";
+                var relativeWebPath = $"/uploads/rooms/{roomId}/{fileName}";
+                // create absolute url for storing/returning so FE can access directly
+                var absoluteUrl = Request != null ?
+                    $"{Request.Scheme}://{Request.Host}{Request.PathBase}{relativeWebPath}" : relativeWebPath;
+
                 var roomImage = new RoomImages
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Path = webPath,
+                    Path = absoluteUrl,
                     RoomId = roomId
                 };
 
@@ -134,6 +161,12 @@ namespace SweetHotel.API.Controllers
             }
 
             var result = _mapper.Map<List<RoomImageDto>>(savedImages);
+            // ensure returned paths are absolute
+            for (int i = 0; i < result.Count; i++)
+            {
+                result[i].Path = ToAbsoluteUrl(result[i].Path);
+            }
+
             return Ok(result);
         }
 
@@ -165,10 +198,17 @@ namespace SweetHotel.API.Controllers
             // try delete file from disk
             try
             {
-                var filePath = Path.Combine(_env.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), image.Path.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
-                if (System.IO.File.Exists(filePath))
+                string relativePath = image.Path;
+                if (Uri.IsWellFormedUriString(image.Path, UriKind.Absolute))
                 {
-                    System.IO.File.Delete(filePath);
+                    var uri = new Uri(image.Path);
+                    relativePath = uri.AbsolutePath; // starts with '/'
+                }
+
+                var physicalPath = Path.Combine(_env.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), relativePath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    System.IO.File.Delete(physicalPath);
                 }
             }
             catch

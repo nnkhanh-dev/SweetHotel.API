@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using SweetHotel.API.DTOs.Room;
 using SweetHotel.API.Entities.Entities;
 using SweetHotel.API.Repositories;
@@ -13,11 +14,25 @@ namespace SweetHotel.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _config;
 
-        public RoomsController(IUnitOfWork unitOfWork, IMapper mapper)
+        public RoomsController(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration config)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _config = config;
+        }
+
+        private string ToAbsoluteUrl(string relativePath)
+        {
+            if (string.IsNullOrWhiteSpace(relativePath)) return relativePath;
+            if (Uri.IsWellFormedUriString(relativePath, UriKind.Absolute)) return relativePath;
+
+            var scheme = Request?.Scheme ?? _config["App:BaseUrlScheme"] ?? "https";
+            var host = Request?.Host.Value ?? _config["App:BaseUrl"] ?? string.Empty;
+            var basePath = Request?.PathBase.HasValue == true ? Request.PathBase.Value : string.Empty;
+            if (string.IsNullOrEmpty(host)) return relativePath; // fallback to relative if no host
+            return $"{scheme}://{host}{basePath}{relativePath}";
         }
 
         // GET: api/Rooms - T?t c? có th? xem
@@ -32,7 +47,13 @@ namespace SweetHotel.API.Controllers
             foreach (var roomDto in roomsDto)
             {
                 var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+                var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+                // convert to absolute urls
+                foreach (var img in imagesDto)
+                {
+                    img.Path = ToAbsoluteUrl(img.Path);
+                }
+                roomDto.Images = imagesDto;
             }
             
             return Ok(roomsDto);
@@ -54,7 +75,12 @@ namespace SweetHotel.API.Controllers
             
             // Get room images
             var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(id);
-            roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+            foreach (var img in imagesDto)
+            {
+                img.Path = ToAbsoluteUrl(img.Path);
+            }
+            roomDto.Images = imagesDto;
 
             return Ok(roomDto);
         }
@@ -71,7 +97,12 @@ namespace SweetHotel.API.Controllers
             foreach (var roomDto in roomsDto)
             {
                 var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+                var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+                foreach (var img in imagesDto)
+                {
+                    img.Path = ToAbsoluteUrl(img.Path);
+                }
+                roomDto.Images = imagesDto;
             }
             
             return Ok(roomsDto);
@@ -89,7 +120,12 @@ namespace SweetHotel.API.Controllers
             foreach (var roomDto in roomsDto)
             {
                 var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+                var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+                foreach (var img in imagesDto)
+                {
+                    img.Path = ToAbsoluteUrl(img.Path);
+                }
+                roomDto.Images = imagesDto;
             }
             
             return Ok(roomsDto);
@@ -107,7 +143,12 @@ namespace SweetHotel.API.Controllers
             foreach (var roomDto in roomsDto)
             {
                 var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+                var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+                foreach (var img in imagesDto)
+                {
+                    img.Path = ToAbsoluteUrl(img.Path);
+                }
+                roomDto.Images = imagesDto;
             }
             
             return Ok(roomsDto);
@@ -134,7 +175,12 @@ namespace SweetHotel.API.Controllers
             foreach (var roomDto in roomsDto)
             {
                 var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-                roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+                var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+                foreach (var img in imagesDto)
+                {
+                    img.Path = ToAbsoluteUrl(img.Path);
+                }
+                roomDto.Images = imagesDto;
             }
             
             return Ok(roomsDto);
@@ -161,7 +207,12 @@ namespace SweetHotel.API.Controllers
             
             // Load images
             var images = await _unitOfWork.RoomImages.GetByRoomIdAsync(roomDto.Id);
-            roomDto.Images = _mapper.Map<List<RoomImageDto>>(images);
+            var imagesDto = _mapper.Map<List<RoomImageDto>>(images);
+            foreach (var img in imagesDto)
+            {
+                img.Path = ToAbsoluteUrl(img.Path);
+            }
+            roomDto.Images = imagesDto;
             
             return CreatedAtAction(nameof(GetRoom), new { id = room.Id }, roomDto);
         }

@@ -155,3 +155,4 @@ D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\ref\SweetHotel.API.
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\bin\Debug\net8.0\web.config
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\bin\Debug\net8.0\appsettings.Production.json
 D:\SweetHotel\SweetHotel.API\SweetHotel.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\SweetHotel\SweetHotel.API\SweetHotel.API\bin\Debug\net8.0\SweetHotel.API.staticwebassets.runtime.json

@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+ï»¿using Microsoft.EntityFrameworkCore;
 using SweetHotel.API.Data;
 using SweetHotel.API.Entities.Entities;
 using SweetHotel.API.Enums;
@@ -59,18 +59,18 @@ namespace SweetHotel.API.Repositories
 
         public async Task<IEnumerable<Room>> GetAvailableRoomsByDateRangeAsync(DateTime startDate, DateTime endDate, string? categoryId = null, int? maxPeople = null)
         {
-            // L?y t?t c? các phòng có tr?ng thái Available
+            // L?y t?t c? cÃ¡c phÃ²ng cÃ³ tr?ng thÃ¡i Available
             var query = _dbSet
                 .Include(r => r.Category)
                 .Where(r => r.Status == RoomStatus.Available);
 
-            // L?c theo danh m?c n?u có
+            // L?c theo danh m?c n?u cÃ³
             if (!string.IsNullOrEmpty(categoryId))
             {
                 query = query.Where(r => r.CategoryId == categoryId);
             }
 
-            // L?c theo s? ng??i n?u có
+            // L?c theo s? ng??i n?u cÃ³
             if (maxPeople.HasValue)
             {
                 query = query.Where(r => r.Category != null && r.Category.MaxPeople >= maxPeople.Value);
@@ -78,7 +78,7 @@ namespace SweetHotel.API.Repositories
 
             var rooms = await query.ToListAsync();
 
-            // L?c các phòng không b? ??t trong kho?ng th?i gian
+            // L?c cÃ¡c phÃ²ng khÃ´ng bá»‹ Ä‘áº·t trong kho?ng th?i gian
             var availableRooms = new List<Room>();
             foreach (var room in rooms)
             {

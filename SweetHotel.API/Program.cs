@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -95,6 +96,15 @@ builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 builder.Services.AddScoped<ITokenReposity, TokenRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// Configure forwarded headers to work behind reverse proxies (IIS/nginx)
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    // Optionally clear KnownNetworks/KnownProxies to allow any proxy (use with caution)
+    options.KnownNetworks.Clear();
+    options.KnownProxies.Clear();
+});
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -122,6 +132,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAll");
+
+// Forward headers (should be before middleware that depends on them)
+app.UseForwardedHeaders();
+
+// Serve static files from wwwroot so uploaded images are accessible
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
